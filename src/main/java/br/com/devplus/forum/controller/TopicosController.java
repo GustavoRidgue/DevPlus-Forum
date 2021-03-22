@@ -94,7 +94,7 @@ public class TopicosController {
     @DeleteMapping("/{id}")
     @Transactional
     @CacheEvict(value = "listaDeTopicos", allEntries = true)
-    public ResponseEntity<?> remover(@PathVariable("id") Long id, @RequestBody @Valid AtualizaTopicoForm form) {
+    public ResponseEntity<?> remover(@PathVariable("id") Long id) {
         Optional<Topico> optional = topicoRepository.findById(id);
 
         if (optional.isPresent()) {
